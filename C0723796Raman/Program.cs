@@ -17,14 +17,14 @@ namespace C0723796Raman
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.Run();
+            p.ReadTextFiles();
 
         }
         public void Run() { this.ReadTextFiles(); }
         public void ReadTextFiles()
         {
             //Read file using StreamReader.Reads file line by line
-            using (StreamReader file = new StreamReader(@"U:/Users/723796/beowulf"))
+            using (StreamReader file = new StreamReader(@"U:\Users\723796/Beowulf.txt"))
             {
                 int counter = 0;
                 string ln;
@@ -53,7 +53,7 @@ namespace C0723796Raman
         public void count()
         {
             string line;
-            TextReader reader = new StreamReader((@"U:/Users/723796/beowulf"));
+            TextReader reader = new StreamReader((@"U:/Users/723796/Beowulf.txt"));
             while ((line = reader.ReadLine()) != null)
             {
                 LineCount++;
