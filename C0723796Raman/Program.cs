@@ -35,6 +35,7 @@ namespace C0723796Raman
         }
         public int FindNumberOfBlankSpaces(string line)
         {
+
             int countletters = 0;
             int countSpaces = 0;
             foreach (char c in line)
