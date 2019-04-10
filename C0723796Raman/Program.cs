@@ -26,7 +26,9 @@ namespace C0723796Raman
                 while ((ln = file.ReadLine()) !=null)
                 {
                     Console.WriteLine(ln);
+                    Beowulf.Add(ln);
                 }
+                file.Close();
             }
 
         }
