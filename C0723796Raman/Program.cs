@@ -22,6 +22,11 @@ namespace C0723796Raman
             using (StreamReader file = new StreamReader(@"U:\Users\723796/beowulf.text"))
             {
                 int counter = 0;
+                String ln;
+                while ((ln = file.ReadLine()) !=null)
+                {
+                    Console.WriteLine(ln);
+                }
             }
 
         }
