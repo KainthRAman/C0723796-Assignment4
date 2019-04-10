@@ -26,22 +26,40 @@ namespace C0723796Raman
             using (StreamReader file = new StreamReader(@"U:\Users\723796/Beowulf.txt"))
 
              {
-              int counter = 0;
-              string ln;
-              while ((ln = file.ReadLine()) != null)
-               {
-                 counter++;
+                int counter = 0;
+
+                int number = 0;
+
+                string line;
+
+                while ((line = file.ReadLine()) != null)
+
+                {
+
+                    if (line.Contains("Sea") && line.Contains("Fare") || line.Contains("sea") && line.Contains("fare"))
+
+                    {
+
+                        int x = counter - 1;
+
+                        number++;
+
+                    }
+
+                    counter++;
 
                 }
-                  file.Close();
-                  Console.WriteLine($"File has {counter} lines.");
-                
-              }
 
-             }
+                Console.WriteLine($"The number of lines that contains *Sea* and *Fare* are {number}");
+
+                file.Close();
+
+            }
+
+        }
 
 
-                public int FindNumberOfBlankSpaces(string line)
+        public int FindNumberOfBlankSpaces(string line)
         {
             int countletters = 0;
             int countSpaces = 0;
@@ -52,17 +70,6 @@ namespace C0723796Raman
             }
             return countSpaces;
 
-        }
-        public void count()
-        {
-            string line;
-            TextReader reader = new StreamReader((@"U:/Users/723796/Beowulf.txt"));
-            while ((line = reader.ReadLine()) != null)
-            {
-                LineCount++;
-            }
-            reader.Close();
-            Console.WriteLine(LineCount);
         }
     }
 }
