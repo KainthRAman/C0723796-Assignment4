@@ -29,6 +29,7 @@ namespace C0723796Raman
                     Beowulf.Add(ln);
                 }
                 file.Close();
+                Console.WriteLine($"File Has {counter} lines.");
             }
 
         }
