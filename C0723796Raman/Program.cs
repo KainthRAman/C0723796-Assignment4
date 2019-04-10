@@ -23,22 +23,25 @@ namespace C0723796Raman
         public void Run() { this.ReadTextFiles(); }
         public void ReadTextFiles()
         {
-            //Read file using StreamReader.Reads file line by line
             using (StreamReader file = new StreamReader(@"U:\Users\723796/Beowulf.txt"))
-            {
-                int counter = 0;
-                string ln;
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Console.WriteLine(ln);
-                    Beowulf.Add(ln);
-                }
-                file.Close();
-                Console.WriteLine($"File has {counter} lines.");
 
-            }
-        }
-        public int FindNumberOfBlankSpaces(string line)
+             {
+              int counter = 0;
+              string ln;
+              while ((ln = file.ReadLine()) != null)
+               {
+                 counter++;
+
+                }
+                  file.Close();
+                  Console.WriteLine($"File has {counter} lines.");
+                
+              }
+
+             }
+
+
+                public int FindNumberOfBlankSpaces(string line)
         {
             int countletters = 0;
             int countSpaces = 0;
