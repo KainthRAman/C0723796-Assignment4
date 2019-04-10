@@ -24,12 +24,16 @@ namespace C0723796Raman
         public void ReadTextFiles()
         {
 
-            using (StreamReader sr = new StreamReader(@"U: \Users\723796\Beowulf.txt"))
+            using (StreamReader sr = new StreamReader("U:/Users/723796/beowulf.txt"))
             {
                 string line;
                 int counter = 0;
                 int a = 0, myWord = 1;
-                int averageLetterPerWord;
+                float averageLetterPerWord;
+                ArrayList lineNumbers = new ArrayList();
+                ArrayList lineNumbers2 = new ArrayList();
+                int linenum = 1;
+                lineNumbers.Add(22);
 
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -38,6 +42,23 @@ namespace C0723796Raman
                     FindNumberOfBlankSpaces(line);
                     counter++;
 
+                    // SECTION C
+                    if (line.Substring(0).Contains("Sea") || line.Substring(0).Contains("sea") && line.Substring(0).Contains("Fare") || line.Substring(0).Contains("fare"))
+                    {
+                        lineNumbers.Add(linenum);
+                    }
+
+                    // SECTION D
+                    if (line.Substring(0).Contains("fare") || line.Substring(0).Contains("Fare"))
+                    {
+                        if (!(line.Substring(0).Contains("war") || line.Substring(0).Contains("War")))
+                        {
+                            lineNumbers2.Add(linenum);
+                        }
+
+                    }
+
+                    // COUNTING THE NUMBER OF WORDS  SECTION B
                     while (a <= line.Length - 1)
                     {
                         if (line[a] == ' ' || line[a] == '\n' || line[a] == '\t')
@@ -48,13 +69,31 @@ namespace C0723796Raman
                     }
                     a = 0;
 
+                    linenum++;  // SECTION C
                 }
-
+                // COUNTING THE NUMBER OF AVERAGE LETTERS IN WORD SECTION E
                 averageLetterPerWord = counterletters / countSpaces;
 
+                // SECTION A: NUMBER OF LINES
                 Console.WriteLine("\n\n\n\n********************************\nThe number of lines in the paragraph is " + counter);
                 Console.WriteLine("The number of words in paragraph is " + myWord);
                 Console.WriteLine("The number of average letters per word is  " + averageLetterPerWord);
+
+
+                // SECTION C: WORDS WHICH CONTAINS BOTH SEA AND FARE
+                Console.WriteLine("The line which contains both sea and fare\n");
+                foreach (int i in lineNumbers)
+                {
+                    Console.Write(i + " ");
+                }
+
+                // SECTION C: WORDS WHICH CONTAINS BOTH SEA AND FARE
+                Console.WriteLine("The line which contains Fare, but not War\n");
+                foreach (int i in lineNumbers2)
+                {
+                    Console.Write(i + " ");
+                }
+
                 Console.ReadLine();
             }
 
